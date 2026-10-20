@@ -1,0 +1,93 @@
+<html>
+<head>
+    <title>Student Hub - Technical Events</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+
+    <header>
+        <div class="Logo">
+            <img src="logo.png">
+        </div>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Classes.html">Classes</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li><a href="Information.html">Information</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </nav>
+        <div>
+            <button class="theme-button" onclick="toggleTheme()">🌙</button>
+        </div>
+        <div class="login">
+            <h2><button onclick="window.location.href='logout.php'">Logout</button></h2>
+        </div>
+    </header>
+
+    <section class="tech">
+        <br><br>
+        <h1 class="page-title">Technical Events</h1>
+        <p class="page-subtitle">Explore and register for upcoming technical events.</p>
+        <br>
+
+        <input type="text" id="searchEvent" placeholder="Search technical events..." oninput="searchEvents()">
+
+        <select id="sortEvents" onchange="searchEvents()">
+            <option value="name">Sort by Name</option>
+            <option value="date">Sort by Date</option>
+        </select>
+
+        <br><br>
+        <div id="technicalEvents"></div>
+        <br>
+        <div id="pagination"></div>
+    </section>
+
+    <section class="registered-events">
+        <h2>My Registered Events</h2>
+        <br>
+        <table id="registeredTable">
+            <tr>
+                <th>Event Name</th>
+                <th>Date</th>
+                <th>Registered</th>
+            </tr>
+        </table>
+    </section>
+    <script src="script.js"></script>
+    <footer>
+        <div class="footer-box">
+            <h2>Student Hub</h2>
+            <p>Your one-stop platform for academic excellence and campus life.</p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="Classes.html">Classes</a></li>
+                <li><a href="Registration.html">Registration</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: studenthub@gmail.com</p>
+            <p>Phone: +91 9876543210</p>
+        </div>
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <p>Instagram</p>
+            <p>LinkedIn</p>
+            <p>YouTube</p>
+        </div>
+    </footer>
+    <p class="copyright">&copy;2026: StudentHub Portal</p>
+
+</body>
+</html>

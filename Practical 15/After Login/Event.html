@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <title>Student Hub - Student Registration</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+<header>
+    <div class="Logo"><img src="logo.png"></div>
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+    <nav class="navbar" id="navbar">
+        <ul>
+            <li><a href = "Homepage.html">Home</a></li>
+            <li><a href = "Classes.html">Classes</a></li>
+            <li><a href = "Registration.html">Registration</a></li>
+            <li><a href = "Information.html">Information</a></li>
+            <li><a href = "Feedback.html">Feedback</a></li>
+            <li><a href = "About.html">About</a></li>
+        </ul>
+    </nav>
+    <div>
+    <button class="theme-button" onclick="toggleTheme()">🌙</button></div>
+    <div class="login">
+        <h2><button onclick="window.location.href='logout.php'">Logout</button></h2>
+    </div>
+</header>
+    <br><br>
+    <section>
+        <h1 align="center">Event Registration</h1>
+        <p align="center">Register in event now</p>
+    </section>
+
+    <section>
+        <form class="LoginPage">
+            <h2>Personal Information</h2>
+
+            <label for="name">Full Name:</label>
+            <br>
+            <input type="text" id="name" name="name">
+            <br><br>
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="email">
+            <br><br>
+            <label for="phone">Phone Number:</label>
+            <br>
+            <input type="tel" id="phone" name="phone">
+            <br><br>
+            <label for="dob">Date of Birth:</label>
+            <br>
+            <input type="date" id="dob" name="dob">
+            <br><br>
+
+            <h2>Academic Information</h2>
+            <label for="studentid">Student ID:</label>
+            <br>
+            <input type="text" id="studentid" name="studentid">
+            <br><br>
+            <label for="department">Department:</label>
+            <br>
+            <select id="department" name="department">
+                <option value="">Select Department</option>
+                <option value="CSE">Computer Science and Engineering</option>
+                <option value="IT">Information Technology</option>
+                <option value="CE">Computer Engineering</option>
+            </select>
+            <br><br>
+            <label for="semester">Semester:</label>
+            <br>
+            <select id="semester" name="semester">
+                <option value="">Select Semester</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+            <br><br>
+
+            <label for="photo">Upload Photo:</label>
+            <br>
+            <input type="file" id="photo" name="photo">
+            <br><br>
+
+            <h2>Select Event</h2>
+            <label for="event">Event:</label>
+            <br>
+            <select id="event" name="event">
+                <option value="">Select Event</option>
+                <option value="1">Tree Plantation</option>
+                <option value="2">SIH Hackathon</option>
+                <option value="3">Oodo Hackathon</option>
+                <option value="4">Tiranga Yatra</option>
+                <option value="5">Bin is Talking</option>
+                <option value="6">NSS Annual Camp</option>
+            </select>
+            <br><br>
+
+            <button type="submit" onclick="window.location.href='Homepage.html'">Register</button>
+            <br><br>
+            <button type="reset">Reset</button>
+
+        </form>
+    </section>
+
+<hr>
+<footer>
+
+    <div>
+        <h2>Student Hub</h2>
+        <p>Your one-stop platform for academic excellence and campus life.</p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Classes.html">Classes</a></li>
+            <li><a href="Registration.html">Registration</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>Email: studenthub@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+    </div>
+
+    <div>
+        <h3>Follow Us</h3>
+        <p>Instagram</p>
+        <p>LinkedIn</p>
+        <p>YouTube</p>
+    </div>
+
+</footer>
+<script src="script.js"></script>
+<p class="copyright">&copy;2026: StudentHub Portal</p>
+</body>
+</html>

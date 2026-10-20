@@ -1,0 +1,298 @@
+<html>
+<head>
+    <title>Student Hub - Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header> 
+    <div class="Logo">
+        <img src="logo.png">
+    </div>
+</header>
+
+<section>
+    <br>
+    <h1 align="center">Create New Account</h1>
+    <p align="center">Join Student Hub and access your student services.</p>
+</section>
+
+<section>
+
+    <form class="LoginPage">
+
+        <label for="name">Full Name:</label>
+        <br>
+        <input type="text" id="name" name="name">
+        <span id="nameError"></span>
+
+        <br><br>
+
+        <label for="email">Email:</label>
+        <br>
+        <input type="email" id="email" name="email">
+        <span id="emailError"></span>
+
+        <br><br>
+
+        <label for="phone">Phone Number:</label>
+        <br>
+        <input type="tel" id="phone" name="phone">
+        <span id="phoneError"></span>
+
+        <br><br>
+
+        <label for="studentid">Student ID:</label>
+        <br>
+        <input type="text" id="studentid" name="studentid">
+        <span id="studentidError"></span>
+
+        <br><br>
+
+        <label for="department">Department:</label>
+        <br>
+
+        <select id="department" name="department">
+            <option value="">Select Department</option>
+            <option value="CSE">Computer Science and Engineering</option>
+            <option value="IT">Information Technology</option>
+            <option value="CE">Computer Engineering</option>
+        </select>
+
+        <span id="departmentError"></span>
+
+        <br><br>
+
+        <label for="semester">Semester:</label>
+        <br>
+
+        <select id="semester" name="semester">
+            <option value="">Select Semester</option>
+            <option value="1">Semester 1</option>
+            <option value="2">Semester 2</option>
+            <option value="3">Semester 3</option>
+            <option value="4">Semester 4</option>
+            <option value="5">Semester 5</option>
+            <option value="6">Semester 6</option>
+            <option value="7">Semester 7</option>
+            <option value="8">Semester 8</option>
+        </select>
+
+        <span id="semesterError"></span>
+
+        <br><br>
+
+        <label for="password">Password:</label>
+        <br>
+        <input type="password" id="password" name="password">
+        <span id="passwordError"></span>
+
+        <br><br>
+
+        <label for="confirm">Confirm Password:</label>
+        <br>
+        <input type="password" id="confirm" name="confirm">
+        <span id="confirmError"></span>
+
+        <br><br>
+        <input type="checkbox" id="terms">
+<label for="terms">I agree to the Terms and Conditions</label>
+<span id="termsError"></span>
+<br><br>
+
+        <!-- IMPORTANT: type submit -->
+        <button type="button" onclick="validateAccount()">Create Account</button>
+
+        <br><br>
+
+        <button type="reset">Reset</button>
+
+        <p id="successMessage"></p>
+
+    </form>
+
+</section>
+
+<hr>
+
+<footer>
+
+    <div>
+        <h2>Student Hub</h2>
+        <p>Your one-stop platform for academic excellence and campus life.</p>
+    </div>
+
+    <div>
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="Homepage.html">Home</a></li>
+            <li><a href="Classes.html">Classes</a></li>
+            <li><a href="Registration.html">Registration</a></li>
+            <li><a href="Feedback.html">Feedback</a></li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>Email: studenthub@gmail.com</p>
+        <p>Phone: +91 9876543210</p>
+    </div>
+
+    <div>
+        <h3>Follow Us</h3>
+        <p>Instagram</p>
+        <p>LinkedIn</p>
+        <p>YouTube</p>
+    </div>
+
+</footer>
+
+<p class="copyright">@2026: StudentHub Portal</p>
+<script>
+
+function validateAccount() {
+
+    var valid = true;
+
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var phone = document.getElementById("phone").value.trim();
+    var studentid = document.getElementById("studentid").value.trim();
+    var department = document.getElementById("department").value;
+    var semester = document.getElementById("semester").value;
+    var password = document.getElementById("password").value;
+    var confirm = document.getElementById("confirm").value;
+    var terms = document.getElementById("terms").checked;
+
+
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("phoneError").innerHTML = "";
+    document.getElementById("studentidError").innerHTML = "";
+    document.getElementById("departmentError").innerHTML = "";
+    document.getElementById("semesterError").innerHTML = "";
+    document.getElementById("passwordError").innerHTML = "";
+    document.getElementById("confirmError").innerHTML = "";
+    document.getElementById("successMessage").innerHTML = "";
+    document.getElementById("termsError").innerHTML = "";
+
+
+    if (name == "") {
+        document.getElementById("nameError").innerHTML =
+            "Please enter your name";
+        valid = false;
+    }
+    else if (!/^[A-Za-z ]+$/.test(name)) {
+        document.getElementById("nameError").innerHTML =
+            "Name should contain only letters";
+        valid = false;
+    }
+
+
+    if (email == "") {
+        document.getElementById("emailError").innerHTML =
+            "Please enter your email";
+        valid = false;
+    }
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        document.getElementById("emailError").innerHTML =
+            "Please enter a valid email";
+        valid = false;
+    }
+
+
+    if (phone == "") {
+        document.getElementById("phoneError").innerHTML =
+            "Please enter your phone number";
+        valid = false;
+    }
+    else if (!/^[0-9]{10}$/.test(phone)) {
+        document.getElementById("phoneError").innerHTML =
+            "Phone number must contain exactly 10 digits";
+        valid = false;
+    }
+
+
+    if (studentid == "") {
+        document.getElementById("studentidError").innerHTML =
+            "Please enter your Student ID";
+        valid = false;
+    }
+
+
+    if (department == "") {
+        document.getElementById("departmentError").innerHTML =
+            "Please select your department";
+        valid = false;
+    }
+
+
+    if (semester == "") {
+        document.getElementById("semesterError").innerHTML =
+            "Please select your semester";
+        valid = false;
+    }
+
+
+    if (password == "") {
+        document.getElementById("passwordError").innerHTML =
+            "Please enter a password";
+        valid = false;
+    }
+    else if (!/^(?=.*[A-Za-z])(?=.*[0-9]).{8,}$/.test(password)) {
+        document.getElementById("passwordError").innerHTML =
+            "Password must have at least 8 characters, one letter and one number";
+        valid = false;
+    }
+
+
+    if (confirm == "") {
+        document.getElementById("confirmError").innerHTML =
+            "Please confirm your password";
+        valid = false;
+    }
+    else if (password != confirm) {
+        document.getElementById("confirmError").innerHTML =
+            "Passwords do not match";
+        valid = false;
+    }
+    if (!terms) {
+    document.getElementById("termsError").innerHTML =
+        "Please accept the Terms and Conditions to continue";
+    valid = false;
+}
+
+    if (valid) {
+        var formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("phone", phone);
+        formData.append("studentid", studentid);
+        formData.append("department", department);
+        formData.append("semester", semester);
+        formData.append("password", password);
+        formData.append("confirm", confirm);
+        formData.append("terms", terms ? "yes" : "no");
+
+        fetch("../After%20Login/create_account.php", { method: "POST", body: formData })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    document.getElementById("successMessage").innerHTML = data.message;
+                    setTimeout(function() { window.location.href = "Login.html"; }, 1000);
+                } else {
+                    document.getElementById("successMessage").innerHTML = data.message;
+                }
+            })
+            .catch(function() {
+                document.getElementById("successMessage").innerHTML = "Unable to connect to the server. Start Apache and MySQL in XAMPP and open this page through localhost.";
+            });
+    }
+
+}
+
+</script>
+
+</body>
+</html>

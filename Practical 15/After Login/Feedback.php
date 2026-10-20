@@ -1,0 +1,128 @@
+<?php
+require_once __DIR__ . "/auth_check.php";
+requireAuth();
+require_once __DIR__ . "/db.php";
+$role = $_SESSION['role'] ?? 'student';
+if ($role === 'admin') {
+
+?><!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Student Hub - Feedback Responses</title><link rel="stylesheet" href="style.css"><style>
+.admin-wrap{max-width:1200px;margin:45px auto;padding:24px;background:#fff;border-radius:18px;box-shadow:0 12px 36px #123f7212}.admin-wrap h1{color:#123f72}.admin-table{width:100%;border-collapse:collapse;margin-top:22px}.admin-table th,.admin-table td{padding:13px 12px;text-align:left;border-bottom:1px solid #e5e7eb}.admin-table th{background:#eaf2fb;color:#123f72}.admin-table tr:hover td{background:#fafcf9}.admin-nav{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0}.admin-nav a{padding:10px 14px;background:#123f72;color:white;border-radius:9px;text-decoration:none}.admin-nav a.current{background:#93c5fd;color:#102a43}.muted{color:#64748b}.empty{padding:25px;text-align:center;color:#64748b}
+</style></head><body><header><div class="logo"><a href="admin_dashboard.php"><img src="logo.png" alt="Student Hub"></a></div><nav class="navbar"><ul><li><a href="admin_dashboard.php">Admin Dashboard</a></li><li><a href="Classes.php">Classes</a></li><li><a href="Registration.php">Registrations</a></li><li><a href="Feedback.php">Feedback</a></li></ul></nav><div class="login"><button onclick="window.location.href='logout.php'">Logout</button></div></header><main class="admin-wrap"><h1>Feedback Responses</h1><p class="muted">Administrator view — student portal content is not shown in this area.</p><div class="admin-nav"><a href="admin_dashboard.php">Overview</a><a href="Classes.php">Class & Student List</a><a href="Registration.php">Event Registrations</a><a href="Feedback.php">Feedback Responses</a></div><div style="overflow-x:auto"><table class="admin-table"><thead><tr><th>ID</th><th>Student ID</th><th>Student Name</th><th>Email</th><th>Subject</th><th>Feedback</th><th>Rating</th><th>Submitted</th></tr></thead><tbody><?php
+$stmt = $pdo->query("SELECT f.id, s.student_id, s.name, s.email, f.subject, f.feedback, f.rating, f.submitted_at FROM feedback f LEFT JOIN students s ON s.id=f.student_id ORDER BY f.id DESC");
+$rows = $stmt->fetchAll();
+if (!$rows) { echo '<tr><td class="empty" colspan="8">No records found yet.</td></tr>'; }
+foreach ($rows as $row) { echo '<tr>' . '<td>'.htmlspecialchars((string)$row['id']).'</td><td>'.htmlspecialchars((string)$row['student_id']).'</td><td>'.htmlspecialchars((string)$row['name']).'</td><td>'.htmlspecialchars((string)$row['email']).'</td><td>'.htmlspecialchars((string)$row['subject']).'</td><td>'.htmlspecialchars((string)$row['feedback']).'</td><td>'.htmlspecialchars((string)$row['rating']).'/5</td><td>'.htmlspecialchars((string)$row['submitted_at']).'</td>' . '</tr>'; }
+?></tbody></table></div></main><footer><div class="footer-box"><h2>Student Hub</h2><p>Administrator portal</p></div></footer></body></html>
+<?php
+exit;
+} 
+?>
+<?php requireRole('student'); ?>
+<html>
+<head>
+    <title>Student Hub - Feedback</title>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <header>
+        <div class="Logo">
+            <img src="logo.png" alt="Student Hub Logo">
+        </div>
+        <button class="menu-button" onclick="toggleMenu()">☰</button>
+        <nav class="navbar" id="navbar">
+            <ul>
+                <li><a href="Homepage.php">Home</a></li>
+                <li><a href="Classes.php">Classes</a></li>
+                <li><a href="Registration.php">Registration</a></li>
+                <li><a href="Information.html">Information</a></li>
+                <li><a href="Feedback.php">Feedback</a></li>
+                <li><a href="About.html">About</a></li>
+            </ul>
+        </nav>
+        <div>
+            <button class="theme-button" onclick="toggleTheme()"> 🌙</button>
+        </div>
+        <div class="login">
+            <button type="button" onclick="window.location.href='logout.php'">Logout</button>
+        </div>
+    </header>
+
+    <section>
+        <br>
+        <h1 align="center">Feedback</h1>
+        <p align="center">We would love to hear your thoughts and suggestions.</p>
+        <form class="LoginPage" id="feedbackForm">
+            <p>Your account details will be linked automatically to this feedback.</p>
+            <label for="subject">Subject:</label>
+            <br>
+            <input type="text" id="subject" name="subject" required>
+            <br><br>
+            <label for="feedback">Your Feedback:</label>
+            <br>
+            <textarea id="feedback" name="feedback" rows="6" cols="50" required></textarea>
+            <br><br>
+            <label for="rating">Rating:</label>
+            <br>
+            <select id="rating" name="rating" required>
+                <option value="">Select Rating</option>
+                <option value="5">Excellent</option>
+                <option value="4">Very Good</option>
+                <option value="3">Good</option>
+                <option value="2">Average</option>
+                <option value="1">Poor</option>
+            </select>
+            <br><br>
+            <button type="submit">Submit</button>
+            <br><br>
+            <button type="reset">Reset</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-box">
+            <h2>Student Hub</h2>
+            <p>Your one-stop platform for academic excellence and campus life.</p>
+        </div>
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="Homepage.php">Home</a></li>
+                <li><a href="Classes.php">Classes</a></li>
+                <li><a href="Registration.php">Registration</a></li>
+                <li><a href="Feedback.php">Feedback</a></li>
+            </ul>
+        </div>
+        <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: studenthub@gmail.com</p>
+            <p>Phone: +91 9876543210</p>
+        </div>
+        <div class="footer-box">
+            <h3>Follow Us</h3>
+            <p>Instagram</p>
+            <p>LinkedIn</p>
+            <p>YouTube</p>
+        </div>
+    </footer>
+
+    <p class="copyright">&copy;2026: StudentHub Portal</p>
+    <script src="script.js"></script>
+    <script>
+    document.getElementById("feedbackForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var form = event.currentTarget;
+        var formData = new FormData(form);
+        fetch("save_feedback.php", { method: "POST", body: formData })
+            .then(function(response) { return response.json(); })
+            .then(function(data) {
+                alert(data.message);
+                if (data.success) form.reset();
+            })
+            .catch(function() { alert("Unable to submit feedback. Please start Apache and MySQL and try again."); });
+    });
+    </script>
+</body>
+
+</html>

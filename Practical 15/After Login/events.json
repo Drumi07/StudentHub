@@ -1,0 +1,68 @@
+{
+    "events": [
+        {
+            "name": "Oodo Hackathon",
+            "date": "25/09/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "15/09/2026",
+            "category": "technical"
+        },
+        {
+            "name": "Coding Competition",
+            "date": "15/09/2026",
+            "time": "9:10 A.M. to 1:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "10/09/2026",
+            "category": "technical"
+        },
+        {
+            "name": "Web Development Workshop",
+            "date": "30/09/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "28/09/2026",
+            "category": "technical"
+        },
+        {
+            "name": "TechFeud",
+            "date": "19/09/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "15/09/2026",
+            "category": "technical"
+        },
+        {
+            "name": "Tree Plantation",
+            "date": "25/10/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "24/10/2026",
+            "category": "non-technical"
+        },
+        {
+            "name": "Music Club Event",
+            "date": "13/09/2026",
+            "time": "9:10 A.M. to 1:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "12/09/2026",
+            "category": "non-technical"
+        },
+        {
+            "name": "Photography Competition",
+            "date": "19/09/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "18/09/2026",
+            "category": "non-technical"
+        },
+        {
+            "name": "Cultural Fest",
+            "date": "27/09/2026",
+            "time": "9:10 A.M. to 4:20 P.M.",
+            "venue": "To be announced via E-mail to registered candidates",
+            "lastDate": "24/09/2026",
+            "category": "non-technical"
+        }
+    ]
+}
